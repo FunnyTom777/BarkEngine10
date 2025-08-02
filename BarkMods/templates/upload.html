@@ -11,15 +11,28 @@
     <form action="/upload" method="post" enctype="multipart/form-data" class="space-y-4">
       <input class="w-full p-2 rounded bg-gray-800 text-white" type="text" name="mod_name" placeholder="Mod Name" required>
       <input class="w-full p-2 rounded bg-gray-800 text-white" type="text" name="author" placeholder="Author" required>
+      
       <select name="version" class="w-full p-2 rounded bg-gray-800 text-white">
         <option value="1.0">BarkEngine v1.0</option>
       </select>
+      
       <textarea class="w-full p-2 rounded bg-gray-800 text-white" name="description" placeholder="Description" required></textarea>
       <input class="w-full p-2 rounded bg-gray-800 text-white" type="text" name="dependencies" placeholder="Dependencies (optional)">
-      <input class="w-full p-2 rounded bg-gray-800 text-white" type="file" name="mod_file" required>
-      <input class="w-full p-2 rounded bg-gray-800 text-white" type="file" name="screenshot" accept="image/*">
-      <button class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded text-white">Post!</button>
-      <a href="/" class="text-orange-400 underline ml-4">← Back</a>
+      
+      <div>
+        <label class="block mb-1 text-orange-300 font-medium" for="mod_file">🗂️ Mod File (.zip, .rar, etc):</label>
+        <input id="mod_file" class="w-full p-2 rounded bg-gray-800 text-white" type="file" name="mod_file" required>
+      </div>
+
+      <div>
+        <label class="block mb-1 text-orange-300 font-medium" for="screenshot">📸 Screenshot (optional):</label>
+        <input id="screenshot" class="w-full p-2 rounded bg-gray-800 text-white" type="file" name="screenshot" accept="image/*">
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <button class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded text-white">Post!</button>
+        <a href="/" class="text-orange-400 underline">← Back</a>
+      </div>
     </form>
   </div>
 </body>
