@@ -81,6 +81,9 @@ If you run into bugs or have feature requests, feel free to open an issue.
 
 Contributions are very welcome! Feel free to fork the repo and submit pull requests.
 
+### license
+This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+You may use and modify the code and assets, but **commercial use is prohibited without permission.**
 
 
 ## Thanks for checking out BarkEngine10! Happy modding and barking! 🐾
