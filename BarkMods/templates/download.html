@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloading {{ mod[1] }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    let seconds = 5;
+    function countdown() {
+      if (seconds > 0) {
+        document.getElementById('timer').innerText = seconds + ' seconds...';
+        seconds--;
+        setTimeout(countdown, 1000);
+      } else {
+        document.getElementById('downloadLink').classList.remove('hidden');
+        document.getElementById('timer').classList.add('hidden');
+      }
+    }
+    window.onload = countdown;
+  </script>
+</head>
+<body class="bg-black text-orange-200 flex flex-col items-center justify-center h-screen">
+  <div class="text-center">
+    <h1 class="text-3xl font-bold mb-4">Preparing Download...</h1>
+    <p id="timer" class="text-lg">5 seconds...</p>
+    <a id="downloadLink" href="{{ url_for('download_file', filename=mod[6]) }}" class="hidden text-orange-300 underline text-xl mt-4 inline-block">⬇️ Click to Download {{ mod[1] }}</a>
+    <div class="mt-8 bg-gray-900 p-4 rounded shadow border border-orange-600">
+      <h2 class="text-xl font-bold text-orange-500">🔥 WoofWorks Donate</h2>
+      <p>Support the development of BarkEngine & modding tools!</p>
+      <a href="https://funnytom777.github.io" class="text-blue-400 underline mt-2 inline-block">Visit Website 🐾</a>
+    </div>
+  </div>
+</body>
+</html>
