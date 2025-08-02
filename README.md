@@ -1,3 +1,6 @@
+![secret message? cool... but dont ask why the banner is not working >:C](/assets/banner.png)
+
+
 # BarkEngine10
 
 Welcome to **BarkEngine10** — the foundation of the BarkEngine universe! BarkEngine10 is the starting point for an exciting, moddable game engine built with Madness and powered by Python.
