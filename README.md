@@ -1,93 +1,119 @@
 ![secret message? cool... but dont ask why the banner is not working >:C](/assets/banner.png)
 
-
 # BarkEngine10
 
-Welcome to **BarkEngine10** — the foundation of the BarkEngine universe! BarkEngine10 is the starting point for an exciting, moddable game engine built with Madness and powered by Python.
+Welcome to **BarkEngine10** — the foundation of the BarkEngine universe! BarkEngine10 is a moddable game engine built with Python with lua mod support.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Installation
 
 1.  **Download the latest release ZIP** from this repository.
-
 2.  **Extract** the ZIP file anywhere you like on your computer.
-
-3.  Open the extracted folder, **right-click** inside it (Windows) and choose **"Open Terminal"** or **"Open PowerShell window here"**.
-
+3.  Open the extracted folder, right-click inside it (Windows) and choose **"Open Terminal"** or **"Open PowerShell window here"**.
 4.  Type the following command and press **Enter**:
 
     ```bash
     python main.py
     ```
 
-    Note: Make sure you have Python installed! We recommend Python 3.8 or higher. If you don’t have Python installed, you can download it from [python.org](https://www.python.org/).
+    *   ✅ **Make sure you have Python 3.8+ installed.** If not, download it from [https://www.python.org/downloads/](https://www.python.org/downloads/).
+    *   Also install the required dependencies:
 
-### How to Use BarkEngine10
+        ```bash
+        pip install -r requirements.txt
+        ```
 
-When you run `main.py`, the BarkEngine10 app window will open. Here’s what you can do:
+---
 
-*   **View Installed Mods:** It automatically scans the mods folder for available mods and displays them, including details like mod name, author, and the BarkEngine version it’s compatible with.
-*   **Add Mods:** Use the Add Mods button to browse and add `.zip` mod files to your mods folder easily.
-*   **Remove Mods:** Select any installed mod and click Remove Selected Mod to delete it from your system.
-*   **Create Mods:** Click Open Mod Maker to launch the built-in mod creation tool (more on this below!).
+## 🐾 What You Can Do
 
-### Making Mods
+When you run `main.py`, the BarkEngine10 app window will open. Here’s a quick overview of what it offers:
 
-You have two ways to create mods for BarkEngine10:
+*   **View Installed Mods:**  It scans the `mods/` folder and displays all your loaded mods neatly.
+*   **Add Mods Easily:** Click the "Add Mod" button to browse and install `.zip` mod files.
+*   **Remove Mods:** Select a mod and delete it with one click.
+*   **Create Mods:** Launch the built-in **Mod Maker** to generate ready-to-use mods with Lua scripts!
 
-1.  **Using the Built-in Mod Maker**
+---
 
-    The easiest way to create mods is with the Mod Maker:
+## 🔧 Modding BarkEngine10 (Lua Support!)
 
-    *   Click the Open Mod Maker button in the app.
-    *   Fill out the form:
-        *   **Mod Name** — Give your mod a catchy title!
-        *   **Mod Author** — Your name or handle.
-        *   **BarkEngine Version** — Pick the version your mod is compatible with (currently only 0.1-alpha).
-        *   **Additional Files** — Add up to 10 extra files to include in your mod package (optional).
+You can now write **mods using Lua!** That’s right – no more DML (Dave Mod Loader was the original way of making mods, but it has now been depecated in return for built in lua mod support!), just zip up a Lua file (and a info.json) and go wild.
 
-    Hit Build Mod, and your mod will be packaged into a `.zip` file with the proper structure and saved to the mods folder.
+### 🧱 Mod Structure
 
-2.  **Making Mods Manually**
+Each mod is a `.zip` file with these essential files:
 
-    If you prefer to craft your mods by hand or with your own tools, here’s how the mod structure works:
+*   `info.json`:  Required metadata about your mod (name, author, BarkEngine version).
+*   `mod.lua`: Your Lua code that runs when BarkEngine loads the mod.
 
-    *   Create a `.zip` archive that contains:
-        *   An `info.json` file at the root of the archive. This file must contain the following JSON fields:
+**Example `info.json`:**
 
-            ```json
-            {
-              "mod name": "Your Mod Name",
-              "mod author": "Your Name or Alias",
-              "BarkEngine version": "0.1-alpha"
-            }
-            ```
+```json
+{
+  "mod name": "Cool Bark Mod",
+  "mod author": "You!",
+  "BarkEngine version": "0.1-alpha"
+}
+```
 
-        *   Any other additional files your mod needs (e.g., assets, scripts, data files).
+**Example `mod.lua`:**
 
-    *   Name your `.zip` file something descriptive (e.g., `SuperBarkMod.zip`).
+```lua
+print_debug("Mod loaded!")
+alert("Bark!", "Hello from Lua!")
+open_window("Lua made this window")
+```
 
-    *   Place your mod `.zip` file inside the `mods` folder in the BarkEngine10 directory.
+Simply put your `.zip` into the `mods/` folder, and BarkEngine10 will load and execute `mod.lua`.
 
-    *   Run BarkEngine10, and your mod will show up in the mod list.
+🧠 **Lua Modding API**
 
-### Where to Get Mods
+Your Lua mods can call these functions:
 
-You can find some preset mods in the "Mods" folder in this repo, i am still working on the BarkEngine Modhub... (the Code for the BarkEngine Modhub is actually included in this repo, so if you really want to you can use/work on that)
+| Function          | Description                               |
+|-------------------|-------------------------------------------|
+| `open_window(title)` | Opens a new UI window with a title         |
+| `alert(title, message)` | Shows a message box popup                |
+| `print_debug(msg)`   | Prints debug info to the console          |
+| `get_mod_name()`    | Returns the current mod’s name            |
+| `ask_file()`       | Opens a file picker (returns path)        |
+| `save_file(text)`  | Opens a save dialog and saves text         |
 
-### Support & Contributions
+*More Lua functions and integrations will come in future versions – like custom UI, game objects, and inter-mod communication!*
 
-If you run into bugs or have feature requests, feel free to open an issue.
+✨ **Creating Mods with the Mod Maker**
 
-Contributions are very welcome! Feel free to fork the repo and submit pull requests.
+The easiest way to create a new mod is using the built-in Mod Maker:
 
-### license
-This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-You may use and modify the code and assets, but **commercial use is prohibited without permission.**
+1.  Click "Open Mod Maker".
+2.  Fill in:
+    *   Mod Name
+    *   Author
+    *   Target BarkEngine Version
+3.  Optionally, add up to 10 files (images, sounds, scripts, etc.).
+4.  Click "Build Mod" – it creates a `.zip` mod and places it in the `mods/` folder!
 
+📦 **Where to Find Mods**
 
-## Thanks for checking out BarkEngine10! Happy modding and barking! 🐾
+*   A few sample mods are already in the `mods/` folder of this repository.
+*   The code for the BarkEngine Modhub is included (in early alpha). Feel free to mess with it or build your own version.
+
+🤝 **Support & Contributing**
+
+Found a bug? Have a feature idea? Open an issue!
+
+📜 **License**
+
+This project is licensed under the
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+✅ You may use and modify the code and assets.
+❌ Commercial use is prohibited without permission.
+
+🐶 **Thanks for checking out BarkEngine10!** Happy modding!
+
 — FunnyTom777 :D
